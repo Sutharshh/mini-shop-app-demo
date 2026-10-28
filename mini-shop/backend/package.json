@@ -1,0 +1,14 @@
+
+{
+  "name": "mini-shop-backend",
+  "version": "1.0.0",
+  "description": "Beginner-friendly e-commerce API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

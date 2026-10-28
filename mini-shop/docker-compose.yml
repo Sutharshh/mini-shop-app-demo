@@ -1,0 +1,17 @@
+
+services:
+  # Backend API
+  backend:
+    build: ./backend
+    container_name: mini-shop-backend
+    restart: unless-stopped
+
+  # Frontend website
+  frontend:
+    build: ./frontend
+    container_name: mini-shop-frontend
+    ports:
+      - "8000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
