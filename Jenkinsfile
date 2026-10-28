@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -25,14 +24,14 @@ pipeline {
             steps {
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'dockerhub-creds',
-                        usernameVariable: 'DOCKERHUB_USER',
-                        passwordVariable: 'DOCKERHUB_TOKEN'
+                        credentialsId: 'dockerhub-token',
+                        usernameVariable: 'sutharsh30',
+                        passwordVariable: 'dckr_pat_WK2-kVkk7TKBhIQpiPWpjUPBw9I'
                     )
                 ]) {
                     bat '''
-                        docker build -t "%DOCKERHUB_USER%/mini-shop-backend:latest" ./backend
-                        docker build -t "%DOCKERHUB_USER%/mini-shop-frontend:latest" ./frontend
+                        docker build -t "sutharsh30/mini-shop-backend:latest" ./backend
+                        docker build -t "sutharsh30/mini-shop-frontend:latest" ./frontend
                     '''
                 }
             }
@@ -43,14 +42,14 @@ pipeline {
             steps {
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'dockerhub-creds',
-                        usernameVariable: 'DOCKERHUB_USER',
-                        passwordVariable: 'DOCKERHUB_TOKEN'
+                        credentialsId: 'dockerhub-token',
+                        usernameVariable: 'sutharsh30',
+                        passwordVariable: 'dckr_pat_WK2-kVkk7TKBhIQpiPWpjUPBw9I'
                     )
                 ]) {
                     bat '''
                         @echo off
-                        docker login -u "%DOCKERHUB_USER%" --password-stdin < nul
+                        docker login -u "sutharsh30" --password-stdin < nul
                     '''
                 }
             }
