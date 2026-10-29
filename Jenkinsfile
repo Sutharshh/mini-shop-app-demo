@@ -16,7 +16,7 @@ pipeline {
         // Stage 2: Install dependencies and test backend
         stage('Test Backend') {
             steps {
-                dir('backend') {
+                dir('mini-shop/backend') {
                     bat 'npm install'
                     bat 'npm test'
                 }
@@ -34,10 +34,10 @@ pipeline {
                     )
                 ]) {
                     bat '''
-                        docker build -t "sutharsh30/mini-shop-backend:latest" ./backend
+                        docker build -t "sutharsh30/mini-shop-backend:latest" ./mini-shop/backend
                         if errorlevel 1 exit /b 1
 
-                        docker build -t "sutharsh30/mini-shop-frontend:latest" ./frontend
+                        docker build -t "sutharsh30/mini-shop-frontend:latest" ./mini-shop/frontend
                         if errorlevel 1 exit /b 1
                     '''
                 }
